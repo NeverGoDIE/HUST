@@ -1,3 +1,5 @@
+package bean;
+
 /**
  * Created by 10648 on 2016/10/15 0015.
  * 对应与 user表
@@ -9,6 +11,9 @@ public class User {
     private String name;
     private String major_class;
     private String department;
+
+    public User() {
+    }
 
     public User(String user_id, String password, String type, String name, String major_class, String department) {
         this.user_id = user_id;
