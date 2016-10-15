@@ -14,7 +14,7 @@ public class UserTest {
 //                "lizhehng", "sofeware",
 //                "jj", "kk");
 //        implUser.addUser(user);
-        User user = implUser.getUser("U201410412");
+        User user = implUser.getBean("U201410412");
         System.out.println(user.getName()+"\n" + user.getDepartment());
 
     }

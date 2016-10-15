@@ -12,43 +12,44 @@ import java.sql.SQLException;
  * Created by 10648 on 2016/10/15 0015.
  *
  */
-public class ImplUser implements Iuser {
+public class ImplUser implements IFun<User> {
+
     @Override
-    public User getUser(String user_id) {
+    public User getBean(String user_id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         User user = new User();
 
-       try {
-           connection = DbUtil.getConnection();
-           DbUtil.beginTransaction(connection);
+        try {
+            connection = DbUtil.getConnection();
+            DbUtil.beginTransaction(connection);
 
-           String sql = "SELECT * FROM user WHERE user_id = ?";
-           preparedStatement = connection.prepareStatement(sql);
-           preparedStatement.setString(1, user_id);
-           resultSet = preparedStatement.executeQuery();
-           while (resultSet.next()) {
-               user.setUser_id(resultSet.getString("user_id"));
-               user.setType(resultSet.getString("type"));
-               user.setPassword(resultSet.getString("password"));
-               user.setName(resultSet.getString("name"));
-               user.setDepartment(resultSet.getString("department"));
-               user.setMajor_class(resultSet.getString("major_class"));
-           }
-           DbUtil.commit(connection);
-       }catch (SQLException e) {
-           e.printStackTrace();
-       }finally {
-           DbUtil.closeResultSet(resultSet);
-           DbUtil.closePrepareStatement(preparedStatement);
-           DbUtil.closeConnetion(connection);
-       }
+            String sql = "SELECT * FROM user WHERE user_id = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, user_id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                user.setUser_id(resultSet.getString("user_id"));
+                user.setType(resultSet.getString("type"));
+                user.setPassword(resultSet.getString("password"));
+                user.setName(resultSet.getString("name"));
+                user.setDepartment(resultSet.getString("department"));
+                user.setMajor_class(resultSet.getString("major_class"));
+            }
+            DbUtil.commit(connection);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DbUtil.closeResultSet(resultSet);
+            DbUtil.closePrepareStatement(preparedStatement);
+            DbUtil.closeConnetion(connection);
+        }
         return user;
     }
 
     @Override
-    public void addUser(User user) {
+    public void addBean(User user) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -76,7 +77,7 @@ public class ImplUser implements Iuser {
     }
 
     @Override
-    public void deleteUser(String user_id) {
+    public void deleteBean(String user_id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
@@ -96,6 +97,4 @@ public class ImplUser implements Iuser {
             DbUtil.closeConnetion(connection);
         }
     }
-
-
 }
