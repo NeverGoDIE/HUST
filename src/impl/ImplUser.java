@@ -26,6 +26,7 @@ public class ImplUser implements Iuser {
 
            String sql = "SELECT * FROM user WHERE user_id = ?";
            preparedStatement = connection.prepareStatement(sql);
+           preparedStatement.setString(1, user_id);
            resultSet = preparedStatement.executeQuery();
            while (resultSet.next()) {
                user.setUser_id(resultSet.getString("user_id"));
@@ -55,7 +56,7 @@ public class ImplUser implements Iuser {
             connection = DbUtil.getConnection();
             DbUtil.beginTransaction(connection);
             String sql = "INSERT INTO user VALUES(" +
-                    "?, ?, ?, ?, ?, ?,)";
+                    "?, ?, ?, ?, ?, ?)";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getUser_id());
             preparedStatement.setString(2, user.getPassword());

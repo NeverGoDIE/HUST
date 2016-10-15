@@ -12,7 +12,6 @@ public class DbUtil {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("成功加载MySQL驱动程序22");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -25,7 +24,7 @@ public class DbUtil {
         // 避免中文乱码要指定useUnicode和characterEncoding
         // 执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
         // 下面语句之前就要先创建数据库
-        String url = "jdbc:mysql://HUST:3306/school?"
+        String url = "jdbc:mysql://localhost:3306/school?"
                 + "user=root&password=hust&useUnicode=true&characterEncoding=UTF-8";
 
         try {
