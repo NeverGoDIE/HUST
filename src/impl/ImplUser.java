@@ -22,6 +22,8 @@ public class ImplUser implements Iuser {
 
        try {
            connection = DbUtil.getConnection();
+           DbUtil.beginTransaction(connection);
+
            String sql = "SELECT * FROM user WHERE user_id = ?";
            preparedStatement = connection.prepareStatement(sql);
            resultSet = preparedStatement.executeQuery();
@@ -33,6 +35,7 @@ public class ImplUser implements Iuser {
                user.setDepartment(resultSet.getString("department"));
                user.setMajor_class(resultSet.getString("major_class"));
            }
+           DbUtil.commit(connection);
        }catch (SQLException e) {
            e.printStackTrace();
        }finally {
@@ -50,6 +53,7 @@ public class ImplUser implements Iuser {
 
         try {
             connection = DbUtil.getConnection();
+            DbUtil.beginTransaction(connection);
             String sql = "INSERT INTO user VALUES(" +
                     "?, ?, ?, ?, ?, ?,)";
             preparedStatement = connection.prepareStatement(sql);
@@ -60,6 +64,8 @@ public class ImplUser implements Iuser {
             preparedStatement.setString(5, user.getMajor_class());
             preparedStatement.setString(6, user.getDepartment());
             preparedStatement.executeUpdate();
+
+            DbUtil.commit(connection);
         }catch (SQLException e){
             e.printStackTrace();
         } finally {
@@ -74,11 +80,14 @@ public class ImplUser implements Iuser {
         PreparedStatement preparedStatement = null;
         try {
             connection = DbUtil.getConnection();
+            DbUtil.beginTransaction(connection);
 
             String sql = "DELETE FROM user WHERE user_id = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user_id);
             preparedStatement.executeUpdate();
+
+            DbUtil.commit(connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
