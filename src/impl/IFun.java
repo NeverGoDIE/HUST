@@ -5,9 +5,8 @@ package impl;
  *
  */
 
-import bean.User;
 public interface IFun<T>{
-    User getBean(String user_id);
-    void addBean(T user);
-    void deleteBean(String user_id);
+    T getBean(String id);
+    void addBean(T bean);
+    void deleteBean(String id);
 }
