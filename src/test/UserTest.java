@@ -1,6 +1,7 @@
 package test;
 
 import bean.User;
+import dao.Fun;
 import impl.ImplUser;
 
 /**
@@ -9,13 +10,16 @@ import impl.ImplUser;
  */
 public class UserTest {
     public static void main(String[] args) {
-        ImplUser implUser = new ImplUser();
-//        User user = new User("U201410412", "mima",
-//                "lizhehng", "sofeware",
-//                "jj", "kk");
+//        ImplUser implUser = new ImplUser();
+        User user = new User("U201410412", "mihahahah",
+                "lizhehng", "sofeware",
+                "jj", "kk");
+        Fun.addBean(user);
+
 //        implUser.addUser(user);
-        User user = implUser.getBean("U201410412");
-        System.out.println(user.getName()+"\n" + user.getDepartment());
+//        User user = implUser.getBean("U201410412");
+        System.out.println(user.toString());
+//        System.out.println(user.getName()+"\n" + user.getDepartment());
 
     }
 }

@@ -71,4 +71,10 @@ public class User {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+//        return super.toString();
+        return "'" + user_id + "', '" + password + "', ' " + type + "', ' " + name + "', ' " + major_class + "', ' " + department + "'";
+    }
 }
