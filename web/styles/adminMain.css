@@ -1,0 +1,80 @@
+html,
+body {
+
+    margin: 0;
+     background: no-repeat;
+    background-size: 100% 100%;
+    background-image: url(../img/userMain.jpg);
+    background-attachment: fixed;
+    font-family: "宋体";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#leftbar {
+    float: left;
+    width: 235px;
+    height: 100%;
+    border-right: 10px rgb(77, 70, 54) solid;
+    position: fixed;
+}
+
+#logo {
+    width: 235px;
+    height: 240px;
+}
+
+.lefts {
+    display: block;
+    width: 235px;
+    height: 92px;
+    background-size: 235px 92px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 92px;
+    font-size: 46px;
+    color: black;
+}
+
+#pic1 {
+    background-image: url(../img/button.png);
+}
+
+#pic2 {
+    background-image: url(../img/button.png);
+}
+
+#pic3 {
+    background-image: url(../img/button.png);
+}
+
+#logo1 {
+    width: 170px;
+    height: 90px;
+    margin: 260px auto 0 auto;
+}
+
+#banner {
+    margin-left: 245px;
+    height: 170px;
+    border-bottom: 4px black solid;
+    background-color: rgba(8,138,69,0.6);
+
+}
+
+#studentName {
+    font-size: 50px;
+    padding-top: 10px;
+    width: 400px;
+    height: 150px;
+    float: right;
+    padding-right: 30px;
+}
+
+/* 以上是界面的公用样式*/
+/*################################################################*/
+
+

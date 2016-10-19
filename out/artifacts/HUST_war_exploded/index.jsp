@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 10648
+  bean.User: 10648
   Date: 2016/10/15 0015
   Time: 13:10
   To change this template use File | Settings | File Templates.
